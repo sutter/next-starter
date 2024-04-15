@@ -13,25 +13,25 @@
 
 ## 🔨 Commands
 
-1. **Download dependencies**
+### Download dependencies
 
 ```bash
 pnpm install
 ```
 
-1. **Start developing**
+### Start developing
 
 ```bash
 pnpm dev
 ```
 
-1. **Lint files**
+### Lint file
 
 ```bash
 pnpm lint
 ```
 
-1. **Build app**
+### Build app
 
 ```bash
 pnpm build
