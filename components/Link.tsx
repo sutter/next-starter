@@ -7,6 +7,7 @@ import { Link as RaLink } from "react-aria-components"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@lib/utils"
+import { PropsWithChildren } from "react"
 
 const linkStyles = tv({
   base: "ra-focus-ring transition data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50",
@@ -29,10 +30,21 @@ const linkStyles = tv({
 })
 
 export interface LinkProps extends NextLinkProps {
+  /**
+   * Additional classes to apply to the link
+   */
   className?: string
-  children: React.ReactNode
+  /**
+   * Whether the link is disabled
+   */
   isDisabled?: boolean
+  /**
+   * The color of the link
+   */
   color?: "naked" | "primary"
+  /**
+   * The size of the link
+   */
   size?: "xs" | "sm" | "md" | "lg"
 }
 
@@ -43,7 +55,7 @@ const Link = ({
   className,
   children,
   ...rest
-}: LinkProps) => {
+}: PropsWithChildren<LinkProps>) => {
   const pathname = usePathname()
   const isActive = (path: string | UrlObject) =>
     path === pathname || `${path}/` === pathname || `${pathname}/` === path
