@@ -36,3 +36,21 @@ pnpm lint
 ```bash
 pnpm build
 ```
+
+### Generate component
+
+```bash
+pnpm build
+```
+
+### Start Storybook
+
+```bash
+pnpm storybook
+```
+
+### Build Storybook
+
+```bash
+pnpm build-storybook
+```

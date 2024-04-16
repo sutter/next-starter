@@ -1,0 +1,13 @@
+import { cn } from "@lib/utils";
+
+interface {{pascalCase name}}Props {
+  className?: string;
+}
+
+const {{pascalCase name}} = ({ className, ...rest }: {{pascalCase name}}Props) => {
+  return (
+    <div className={cn(className)} {...rest}></div>
+  );
+};
+
+export default {{pascalCase name}};
