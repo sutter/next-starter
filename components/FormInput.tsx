@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants"
 
 import { cn } from "@lib/utils"
 
-const inputStyles = tv({
+export const inputStyles = tv({
   base: "ra-focus-ring block w-full rounded-md border-0 ring-1 ring-inset  transition data-[focused=true]:ring-2 data-[focus-visible=true]:ring-1 text-gray-900 ring-input placeholder:text-input-placeholder data-[focused=true]:ring-primary data-[focus-visible=true]:ring-input invalid:ring-error invalid:text-error invalid:placeholder-error-400 invalid:bg-error-50 disabled:bg-input-disabled",
   variants: {
     size: {

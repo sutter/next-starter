@@ -1,14 +1,12 @@
-import { ReactNode } from "react"
-import { TextField, TextFieldProps } from "react-aria-components"
+import { PropsWithChildren, ReactNode } from "react"
+import { TextField, TextFieldProps, FieldError } from "react-aria-components"
 
 import { cn } from "@lib/utils"
 import FormLabel, { FormLabelProps } from "./FormLabel"
-import FormInput, { FormInputProps } from "./FormInput"
 import FormMessage from "./FormMessage"
 
-interface FormTextFieldProps extends TextFieldProps {
+interface FormGroupProps extends TextFieldProps {
   labelProps: FormLabelProps
-  inputProps: FormInputProps
   /**
    * Add a description to the field
    */
@@ -19,24 +17,26 @@ interface FormTextFieldProps extends TextFieldProps {
   errorMessages?: ReactNode
 }
 
-const FormTextField = ({
+const FormGroup = ({
   labelProps,
-  inputProps,
   className,
   description,
   errorMessages,
+  children,
   ...rest
-}: FormTextFieldProps) => {
+}: PropsWithChildren<FormGroupProps>) => {
   return (
     <TextField className={cn("space-y-1", className)} {...rest}>
       <FormLabel {...labelProps} />
-      <FormInput {...inputProps} />
+      {children}
       {description && <FormMessage>{description}</FormMessage>}
       {errorMessages && (
-        <FormMessage color="error">{errorMessages}</FormMessage>
+        <FormMessage as={FieldError} color="error">
+          {errorMessages}
+        </FormMessage>
       )}
     </TextField>
   )
 }
 
-export default FormTextField
+export default FormGroup

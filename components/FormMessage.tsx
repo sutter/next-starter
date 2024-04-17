@@ -26,18 +26,26 @@ interface FormMessageProps {
    * The color of the message
    */
   color?: "default" | "error" | "success"
+  /**
+   * The element to render the message as
+   */
+  as?: React.ElementType
 }
 
 const FormMessage = ({
   className,
   color,
   children,
+  as: Component = "div",
   ...rest
 }: PropsWithChildren<FormMessageProps>) => {
   return (
-    <div className={cn(FormMessageStyles({ color }), className)} {...rest}>
+    <Component
+      className={cn(FormMessageStyles({ color }), className)}
+      {...rest}
+    >
       {children}
-    </div>
+    </Component>
   )
 }
 

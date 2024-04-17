@@ -1,14 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import FormTextField from "./FormTextField"
+import FormGroup from "./FormGroup"
+import FormInput from "./FormInput"
+import FormTextarea from "./FormTextarea"
 
-const meta: Meta<typeof FormTextField> = {
-  title: "FormTextField",
-  component: FormTextField,
+const meta: Meta<typeof FormGroup> = {
+  title: "FormGroup",
+  component: FormGroup,
   tags: ["autodocs"],
 }
 
 export default meta
-type Story = StoryObj<typeof FormTextField>
+type Story = StoryObj<typeof FormGroup>
 
 export const Default: Story = {
   args: {
@@ -16,29 +18,33 @@ export const Default: Story = {
     labelProps: {
       children: "Label",
     },
-    inputProps: {
-      placeholder: "Placeholder",
-    },
   },
+  render: (args) => (
+    <div className="grid gap-4">
+      <FormGroup {...args} children={<FormInput />} />
+      <FormGroup {...args} children={<FormTextarea />} />
+    </div>
+  ),
 }
 
 export const DefaultValue: Story = {
   args: {
     ...Default.args,
     defaultValue: "Default value",
+    children: [<FormInput />],
   },
 }
 
 export const Description: Story = {
   args: {
-    ...Default.args,
+    ...DefaultValue.args,
     description: "This is a description",
   },
 }
 
 export const isInvalid: Story = {
   args: {
-    ...Default.args,
+    ...DefaultValue.args,
     isInvalid: true,
     errorMessages: "This is an error message",
   },
@@ -46,7 +52,7 @@ export const isInvalid: Story = {
 
 export const Disabled: Story = {
   args: {
-    ...Default.args,
+    ...DefaultValue.args,
     isDisabled: true,
   },
 }

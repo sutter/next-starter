@@ -6,10 +6,12 @@
   @apply data-[focused=true]:outline-none data-[focus-visible=true]:outline data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:outline-primary;
 }
 
+textarea[readonly],
 input[readonly] {
   @apply bg-gray-100 ring-gray-100;
 }
 
+textarea[disabled],
 input[disabled] {
   @apply bg-gray-100 cursor-not-allowed;
 }
