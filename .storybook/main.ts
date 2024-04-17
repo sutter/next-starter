@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/nextjs";
+import type { StorybookConfig } from "@storybook/nextjs"
 
 const excludedProps = new Set([
   "id",
@@ -12,7 +12,7 @@ const excludedProps = new Set([
   "onSelect",
   "onBeforeInput",
   "onInput",
-]);
+])
 
 const config: StorybookConfig = {
   stories: [
@@ -25,6 +25,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-styling-webpack",
     "@storybook/addon-controls",
+    "@whitespace/storybook-addon-html",
     {
       name: "@storybook/addon-styling-webpack",
 
@@ -73,5 +74,5 @@ const config: StorybookConfig = {
     },
   },
   staticDirs: ["../public"],
-};
-export default config;
+}
+export default config
