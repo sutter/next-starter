@@ -30,6 +30,20 @@ export const Size: Story = {
   ),
 }
 
+export const Type: Story = {
+  args: {
+    ...Default.args,
+  },
+  render: (args) => (
+    <div className="flex flex-col gap-4">
+      <FormInput {...args} type="text" />
+      <FormInput {...args} type="password" />
+      <FormInput {...args} type="email" />
+      <FormInput {...args} type="number" />
+    </div>
+  ),
+}
+
 export const Disabled: Story = {
   args: {
     ...Default.args,

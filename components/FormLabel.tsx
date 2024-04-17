@@ -1,7 +1,7 @@
 import { Label, LabelProps } from "react-aria-components"
 import { cn } from "@lib/utils"
 
-interface FormLabelProps extends LabelProps {}
+export interface FormLabelProps extends LabelProps {}
 
 const FormLabel = ({ className, ...rest }: FormLabelProps) => {
   return (

@@ -19,7 +19,7 @@ const inputStyles = tv({
   },
 })
 
-interface FormInputProps extends Omit<InputProps, "size"> {
+export interface FormInputProps extends Omit<InputProps, "size"> {
   /**
    * The size of the input
    */
