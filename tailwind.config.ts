@@ -20,6 +20,15 @@ module.exports = {
           ...colors.indigo,
           DEFAULT: colors.indigo[500],
         },
+        error: {
+          ...colors.red,
+          DEFAULT: colors.red[500],
+        },
+        input: {
+          focus: colors.indigo[500],
+          placeholder: colors.slate[400],
+          DEFAULT: colors.slate[300],
+        },
       },
     },
   },
