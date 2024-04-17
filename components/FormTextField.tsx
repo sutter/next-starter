@@ -1,9 +1,10 @@
+import { ReactNode } from "react"
 import { TextField, TextFieldProps } from "react-aria-components"
 
 import { cn } from "@lib/utils"
 import FormLabel, { FormLabelProps } from "./FormLabel"
 import FormInput, { FormInputProps } from "./FormInput"
-import { ReactNode } from "react"
+import FormMessage from "./FormMessage"
 
 interface FormTextFieldProps extends TextFieldProps {
   labelProps: FormLabelProps
@@ -30,9 +31,9 @@ const FormTextField = ({
     <TextField className={cn("space-y-1", className)} {...rest}>
       <FormLabel {...labelProps} />
       <FormInput {...inputProps} />
-      {description && <div className="text-sm text-gray">{description}</div>}
+      {description && <FormMessage>{description}</FormMessage>}
       {errorMessages && (
-        <div className="text-sm text-error">{errorMessages}</div>
+        <FormMessage color="error">{errorMessages}</FormMessage>
       )}
     </TextField>
   )

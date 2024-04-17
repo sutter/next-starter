@@ -24,6 +24,10 @@ module.exports = {
           ...colors.red,
           DEFAULT: colors.red[500],
         },
+        success: {
+          ...colors.emerald,
+          DEFAULT: colors.emerald[500],
+        },
         input: {
           focus: colors.indigo[500],
           placeholder: colors.slate[400],
