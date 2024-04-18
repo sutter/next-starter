@@ -31,6 +31,7 @@ module.exports = {
         input: {
           focus: colors.indigo[500],
           placeholder: colors.slate[400],
+          disabled: colors.slate[100],
           DEFAULT: colors.slate[300],
         },
       },
