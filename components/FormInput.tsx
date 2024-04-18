@@ -1,3 +1,5 @@
+"use client"
+
 import { Input, InputProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
