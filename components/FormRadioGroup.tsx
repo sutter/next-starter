@@ -2,23 +2,23 @@
 
 import { ReactNode, PropsWithChildren } from "react";
 import { tv } from "tailwind-variants";
-import { CheckboxGroup, CheckboxGroupProps } from "react-aria-components";
+import { RadioGroup, RadioGroupProps } from "react-aria-components";
 
 import { cn } from "../lib/utils";
 import FormLabel from "./FormLabel";
 import FormFieldDescription from "./FormFieldDescription";
 import FormFieldError from "./FormFieldError";
 
-const styles = tv({
+const formRadioGroupStyles = tv({
   slots: {
-    base: "group",
-    checkboxWrapper: "flex flex-col gap-1 my-1",
+    base: "group space-y-2",
+    checkboxWrapper: "flex group-orientation-vertical:flex-col gap-1 group-orientation-horizontal:gap-4",
   },
 });
 
-const { base, checkboxWrapper } = styles();
+const { base, checkboxWrapper } = formRadioGroupStyles();
 
-interface FormCheckboxGroupProps extends CheckboxGroupProps {
+interface FormRadioGroupProps extends RadioGroupProps {
   /**
    * Props for the label component
    */
@@ -33,22 +33,22 @@ interface FormCheckboxGroupProps extends CheckboxGroupProps {
   errorMessages?: ReactNode;
 }
 
-const FormCheckboxGroup = ({
+const FormRadioGroup = ({
   className,
   children,
   label,
   description,
   errorMessages,
   ...rest
-}: PropsWithChildren<FormCheckboxGroupProps>) => {
+}: PropsWithChildren<FormRadioGroupProps>) => {
   return (
-    <CheckboxGroup className={cn(className, base())} {...rest}>
+    <RadioGroup className={cn(className, base())} {...rest}>
       <FormLabel>{label}</FormLabel>
       <div className={checkboxWrapper()}>{children}</div>
       {description && <FormFieldDescription>{description}</FormFieldDescription>}
       {errorMessages && <FormFieldError>{errorMessages}</FormFieldError>}
-    </CheckboxGroup>
+    </RadioGroup>
   );
 };
 
-export default FormCheckboxGroup;
+export default FormRadioGroup;

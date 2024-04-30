@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/nextjs"
+import type { StorybookConfig } from "@storybook/nextjs";
 
 const excludedProps = new Set([
   "id",
@@ -12,13 +12,10 @@ const excludedProps = new Set([
   "onSelect",
   "onBeforeInput",
   "onInput",
-])
+]);
 
 const config: StorybookConfig = {
-  stories: [
-    "../components/**/*.mdx",
-    "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-  ],
+  stories: ["../components/**/*.mdx", "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -69,10 +66,9 @@ const config: StorybookConfig = {
         allowSyntheticDefaultImports: false,
         esModuleInterop: false,
       },
-      propFilter: (prop) =>
-        !prop.name.startsWith("aria-") && !excludedProps.has(prop.name),
+      propFilter: prop => !prop.name.startsWith("aria-") && !excludedProps.has(prop.name),
     },
   },
   staticDirs: ["../public"],
-}
-export default config
+};
+export default config;

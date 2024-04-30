@@ -1,26 +1,30 @@
-"use client"
+"use client";
 
-import { PropsWithChildren, ReactNode } from "react"
-import { TextField, TextFieldProps, FieldError } from "react-aria-components"
+import { PropsWithChildren, ReactNode } from "react";
+import { TextField, TextFieldProps } from "react-aria-components";
 
-import { cn } from "@lib/utils"
-import FormLabel, { FormLabelProps } from "./FormLabel"
-import FormMessage from "./FormMessage"
+import { cn } from "../lib/utils";
+import FormLabel from "./FormLabel";
+import FormFieldDescription from "./FormFieldDescription";
+import FormFieldError from "./FormFieldError";
 
 interface FormGroupProps extends TextFieldProps {
-  labelProps: FormLabelProps
+  /**
+   * Props for the label component
+   */
+  label: string;
   /**
    * Add a description to the field
    */
-  description?: ReactNode
+  description?: ReactNode;
   /**
    * Add error messages to the field
    */
-  errorMessages?: ReactNode
+  errorMessages?: ReactNode;
 }
 
 const FormGroup = ({
-  labelProps,
+  label,
   className,
   description,
   errorMessages,
@@ -28,17 +32,13 @@ const FormGroup = ({
   ...rest
 }: PropsWithChildren<FormGroupProps>) => {
   return (
-    <TextField className={cn("space-y-1", className)} {...rest}>
-      <FormLabel {...labelProps} />
+    <TextField className={cn(className, "space-y-1")} {...rest}>
+      <FormLabel>{label}</FormLabel>
       {children}
-      {description && <FormMessage>{description}</FormMessage>}
-      {errorMessages && (
-        <FormMessage as={FieldError} color="error">
-          {errorMessages}
-        </FormMessage>
-      )}
+      {description && <FormFieldDescription>{description}</FormFieldDescription>}
+      {errorMessages && <FormFieldError>{errorMessages}</FormFieldError>}
     </TextField>
-  )
-}
+  );
+};
 
-export default FormGroup
+export default FormGroup;

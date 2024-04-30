@@ -1,9 +1,9 @@
-import { PropsWithChildren } from "react"
-import { tv } from "tailwind-variants"
+import { PropsWithChildren } from "react";
+import { tv } from "tailwind-variants";
 
-import { cn } from "@lib/utils"
+import { cn } from "@lib/utils";
 
-const FormMessageStyles = tv({
+const styles = tv({
   base: "text-sm",
   variants: {
     color: {
@@ -15,21 +15,21 @@ const FormMessageStyles = tv({
   defaultVariants: {
     color: "default",
   },
-})
+});
 
 interface FormMessageProps {
   /**
    * Additional classes to add
    */
-  className?: string
+  className?: string;
   /**
    * The color of the message
    */
-  color?: "default" | "error" | "success"
+  color?: "default" | "error" | "success";
   /**
    * The element to render the message as
    */
-  as?: React.ElementType
+  as?: React.ElementType;
 }
 
 const FormMessage = ({
@@ -40,13 +40,10 @@ const FormMessage = ({
   ...rest
 }: PropsWithChildren<FormMessageProps>) => {
   return (
-    <Component
-      className={cn(FormMessageStyles({ color }), className)}
-      {...rest}
-    >
+    <Component className={cn(styles({ color }), className)} {...rest}>
       {children}
     </Component>
-  )
-}
+  );
+};
 
-export default FormMessage
+export default FormMessage;

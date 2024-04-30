@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
-import colors from "tailwindcss/colors"
+import colors from "tailwindcss/colors";
+import { fieldBasicStyles, focusRingStyles } from "./lib/utils";
 
 module.exports = {
   content: [
@@ -8,6 +9,21 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    ...focusRingStyles.base.split(" "),
+    ...focusRingStyles.variants.isFocusVisible.true.split(" "),
+    ...focusRingStyles.variants.isFocusVisible.false.split(" "),
+    ...fieldBasicStyles.base.split(" "),
+    ...fieldBasicStyles.variants.size.lg.split(" "),
+    ...fieldBasicStyles.variants.size.md.split(" "),
+    ...fieldBasicStyles.variants.size.sm.split(" "),
+    ...fieldBasicStyles.variants.size.xs.split(" "),
+    ...fieldBasicStyles.variants.isDisabled.true.split(" "),
+    ...fieldBasicStyles.variants.isInvalid.true.split(" "),
+    ...fieldBasicStyles.variants.isFocused.true.split(" "),
+    ...fieldBasicStyles.variants.isFocusVisible.true.split(" "),
+  ],
+
   theme: {
     colors: {
       black: colors.black,
@@ -38,4 +54,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-react-aria-components")],
-}
+};

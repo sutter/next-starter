@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react"
-import Link from "./Link"
+import type { Meta, StoryObj } from "@storybook/react";
+import Link from "./Link";
 
 const meta: Meta<typeof Link> = {
   title: "Link",
   component: Link,
   tags: ["autodocs"],
-}
+};
 
-export default meta
-type Story = StoryObj<typeof Link>
+export default meta;
+type Story = StoryObj<typeof Link>;
 
 export const Default: Story = {
   args: {
@@ -17,13 +17,13 @@ export const Default: Story = {
     color: undefined,
     size: undefined,
   },
-}
+};
 
 export const Color: Story = {
   args: {
     ...Default.args,
   },
-  render: (args) => (
+  render: args => (
     <div className="flex gap-4">
       <Link {...args}>Base</Link>
       <Link {...args} color="primary">
@@ -31,13 +31,13 @@ export const Color: Story = {
       </Link>
     </div>
   ),
-}
+};
 
 export const Size: Story = {
   args: {
     ...Default.args,
   },
-  render: (args) => (
+  render: args => (
     <div className="flex gap-4 items-center">
       <Link {...args} size="xs">
         Size XS
@@ -51,11 +51,11 @@ export const Size: Story = {
       </Link>
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   args: {
     ...Default.args,
     isDisabled: true,
   },
-}
+};

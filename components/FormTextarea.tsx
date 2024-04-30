@@ -1,22 +1,31 @@
-"use client"
+"use client";
 
-import { TextArea, TextAreaProps } from "react-aria-components"
+import { composeRenderProps, TextArea, TextAreaProps } from "react-aria-components";
+import { tv } from "tailwind-variants";
 
-import { cn } from "@lib/utils"
+import { fieldBasicStyles } from "../lib/utils";
+import { FieldSize } from "./types";
 
-export interface FormTextareaProps extends TextAreaProps {}
+const styles = tv({
+  extend: fieldBasicStyles,
+});
 
-const FormTextarea = ({ className, ...rest }: FormTextareaProps) => {
+export interface FormTextareaProps extends TextAreaProps {
+  /**
+   * The size of the field
+   */
+  size?: FieldSize;
+}
+
+const FormTextarea = ({ className, size, ...rest }: FormTextareaProps) => {
   return (
     <TextArea
-      className={cn(
-        "ra-focus-ring block w-full rounded-md border-0 ring-1 ring-inset  transition data-[focused=true]:ring-2 data-[focus-visible=true]:ring-1 text-gray-900 ring-input placeholder:text-input-placeholder data-[focused=true]:ring-primary data-[focus-visible=true]:ring-input invalid:ring-error invalid:text-error invalid:placeholder-error-400 invalid:bg-error-50 disabled:bg-input-disabled",
-        "px-3 py-1.5 text-sm",
-        className
+      className={composeRenderProps(className, (className, renderProps) =>
+        styles({ ...renderProps, size: size, className }),
       )}
       {...rest}
     />
-  )
-}
+  );
+};
 
-export default FormTextarea
+export default FormTextarea;

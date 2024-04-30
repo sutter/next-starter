@@ -31,6 +31,12 @@ pnpm dev
 pnpm lint
 ```
 
+### Format file
+
+```bash
+pnpm format
+```
+
 ### Build app
 
 ```bash

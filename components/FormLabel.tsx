@@ -1,25 +1,17 @@
-"use client"
+"use client";
 
-import { Label, LabelProps } from "react-aria-components"
-import { cn } from "@lib/utils"
-import React from "react"
+import { Label, LabelProps } from "react-aria-components";
+import { tv } from "tailwind-variants";
+import { cn } from "../lib/utils";
 
-export interface FormLabelProps extends LabelProps {
-  children: React.ReactNode
-}
+const styles = tv({
+  base: "block text-sm font-medium leading-6 text-gray-900",
+});
 
-const FormLabel = ({ className, children, ...rest }: FormLabelProps) => {
-  return (
-    <Label
-      className={cn(
-        "block text-sm font-medium leading-6 text-gray-900",
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </Label>
-  )
-}
+export interface FormLabelProps extends LabelProps {}
 
-export default FormLabel
+const FormLabel = (props: FormLabelProps) => {
+  return <Label {...props} slot="label" className={cn(props.className, styles)} />;
+};
+
+export default FormLabel;
