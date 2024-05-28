@@ -11,7 +11,7 @@ const styles = tv({
 export interface FormLabelProps extends LabelProps {}
 
 const FormLabel = (props: FormLabelProps) => {
-  return <Label {...props} slot="label" className={cn(props.className, styles)} />;
+  return <Label {...props} slot="label" className={cn(props.className, styles())} />;
 };
 
 export default FormLabel;

@@ -8,7 +8,7 @@ import { focusRingStyles } from "../lib/utils";
 
 const styles = tv({
   extend: focusRingStyles,
-  base: "group inline-flex items-center gap-2",
+  base: "flex items-center gap-2",
   slots: {
     checkbox: "flex items-center justify-center w-4 h-4 ring-1 ring-input rounded-sm transition",
 

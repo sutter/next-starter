@@ -28,7 +28,7 @@ export const fieldBasicStyles = tv({
       true: "bg-input-disabled",
     },
     isInvalid: {
-      true: "placeholder-error-400 bg-error-50 ring-error text-error",
+      true: "placeholder:text-error-400 bg-error-50 ring-error text-error",
     },
     isFocused: {
       true: "ring-2 ring-primary",
