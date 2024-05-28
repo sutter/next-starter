@@ -1,6 +1,6 @@
 "use client";
 
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { tv } from "tailwind-variants";
 import { UrlObject } from "url";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
@@ -11,7 +11,7 @@ import { focusRingStyles } from "../lib/utils";
 
 const styles = tv({
   extend: focusRingStyles,
-  base: "transition data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50",
+  base: "transition",
   variants: {
     color: {
       naked: undefined,
@@ -22,6 +22,9 @@ const styles = tv({
       sm: "text-sm",
       md: "text-base",
       lg: "text-lg",
+    },
+    isDisabled: {
+      true: "cursor-not-allowed opacity-50",
     },
   },
   defaultVariants: {
@@ -47,9 +50,26 @@ export interface LinkProps extends NextLinkProps {
    * The size of the link
    */
   size?: "xs" | "sm" | "md" | "lg";
+  /**
+   * The content to display before the link
+   */
+  startContent?: ReactNode;
+  /**
+   * The content to display after the link
+   */
+  endContent?: ReactNode;
 }
 
-const Link = ({ size, color, href, className, children, ...rest }: PropsWithChildren<LinkProps>) => {
+const Link = ({
+  size,
+  color,
+  href,
+  className,
+  children,
+  startContent,
+  endContent,
+  ...rest
+}: PropsWithChildren<LinkProps>) => {
   const pathname = usePathname();
   const isActive = (path: string | UrlObject) =>
     path === pathname || `${path}/` === pathname || `${pathname}/` === path;
@@ -63,7 +83,9 @@ const Link = ({ size, color, href, className, children, ...rest }: PropsWithChil
           styles({ ...renderProps, className, color: color, size: size }),
         )}
       >
+        {startContent}
         {children}
+        {endContent}
       </RaLink>
     </NextLink>
   );

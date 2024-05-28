@@ -59,3 +59,17 @@ export const Disabled: Story = {
     isDisabled: true,
   },
 };
+
+export const StartContent: Story = {
+  args: {
+    ...Default.args,
+    startContent: "🚀",
+  },
+};
+
+export const EndContent: Story = {
+  args: {
+    ...Default.args,
+    endContent: "🚀",
+  },
+};
